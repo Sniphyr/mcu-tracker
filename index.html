@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#05080d">
+  <title>Marvel Mission Control</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="#/dashboard" aria-label="Marvel Mission Control, home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <span class="brand-name">Marvel Mission Control</span>
+        <span class="brand-tag">Watch tracker</span>
+      </span>
+    </a>
+
+    <nav class="tabs" aria-label="Sections">
+      <a class="tab" href="#/dashboard" data-route="dashboard">Dashboard</a>
+      <a class="tab" href="#/movies" data-route="movies">Movies <span class="tab-count" id="tab-count-movies"></span></a>
+      <a class="tab" href="#/tv" data-route="tv">TV Shows <span class="tab-count" id="tab-count-tv"></span></a>
+      <a class="tab" href="#/timeline" data-route="timeline">Timeline</a>
+      <a class="tab" href="#/watchlist" data-route="watchlist">Watchlist</a>
+      <a class="tab" href="#/search" data-route="search">Search</a>
+    </nav>
+  </header>
+
+  <div class="toolbar">
+    <div class="search-box">
+      <label class="search-label" for="global-search">Search</label>
+      <div class="search-input-wrap">
+        <input type="search" id="global-search" class="search-input"
+               placeholder="Search movies, shows, seasons, episodes"
+               autocomplete="off" spellcheck="false">
+        <span class="search-icon" aria-hidden="true">&#128269;</span>
+      </div>
+    </div>
+    <div class="order-picker">
+      <label class="order-label" for="watch-order">Watch order</label>
+      <select id="watch-order" class="order-select"></select>
+    </div>
+  </div>
+  <p class="sr-only" id="order-status" role="status" aria-live="polite"></p>
+  <p class="sr-only" id="tv-status" role="status" aria-live="polite"></p>
+
+  <main id="app" class="app" tabindex="-1">
+    <noscript><p class="notice">Mission Control needs JavaScript turned on to run.</p></noscript>
+  </main>
+
+  <footer class="footer">
+    <span>Personal project. Posters belong to Marvel and Disney and are used locally only.</span>
+    <div class="footer-actions">
+      <button type="button" class="link-btn" id="export-progress">Export progress</button>
+      <button type="button" class="link-btn" id="import-progress">Import progress</button>
+      <input type="file" id="import-file-input" accept="application/json" hidden>
+      <button type="button" class="link-btn" id="reset-movies">Reset movie progress</button>
+      <button type="button" class="link-btn" id="reset-tv">Reset TV progress</button>
+      <button type="button" class="link-btn link-btn-danger" id="reset-all">Reset all progress</button>
+    </div>
+  </footer>
+  <p class="sr-only" id="settings-status" role="status" aria-live="polite"></p>
+
+  <script src="js/data-movies.js"></script>
+  <script src="js/data-movies-xmen.js"></script>
+  <script src="js/data-tv.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
